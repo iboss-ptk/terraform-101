@@ -6,8 +6,8 @@ patat:
   slideLevel: 2
   wrap: true
   margins:
-    left: 60
-    right: 60
+    left: 30
+    right: 30
   pandocExtensions:
     - patat_extensions
     - autolink_bare_uris
@@ -15,12 +15,26 @@ patat:
 ...
 
 # Terraform 101
-## Code Example
 
-creating an ec2 instance
-```json
-resource "aws_instance" "web" {
-  ami = "ami-408c7f28"
-}
+## Problems
+
+* want to version control infrastructure along with application
+* simple and declarative, not just bunches of messy shell script
+
+## Terraform to rescue!
+
+* define infrastructure as code declaratively
+* reproducible
+* idempotent
+* easier to manage than GUI in many cases
+* modules for abstraction
+
+# Time to code!
+## Let's build "My Crush" bot
+
 ```
-
+   ____________________ (reply) _____________________
+  |                                                  |
+  v                                                  |
+Line -- (webhook) --> API Gateway -- (invoke) --> Lambda
+```
