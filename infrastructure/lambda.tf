@@ -9,6 +9,8 @@ resource "aws_lambda_function" "reply_euu" {
   s3_bucket = "${aws_s3_bucket.crush_lambda_deployment.id}"
   s3_key    = "lambda.zip"
 
+  source_code_hash = "${base64sha256(file("../deployment/lambda.zip"))}"
+
   handler = "main.handler"
   runtime = "nodejs6.10"
 

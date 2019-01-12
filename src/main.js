@@ -6,7 +6,15 @@ exports.handler = function(event, context, callback) {
     headers: {
       'Content-Type': 'text/html; charset=utf-8'
     },
-    body: '<p>Hello world!</p>'
+    body: `
+      <h2>Event</h2>
+      <pre>${JSON.stringify(event, null, 2)}</pre>
+
+      <hr/>
+
+      <h2>Context</h2>
+      <pre>${JSON.stringify(context, null, 2)}</pre>
+    `
   }
   callback(null, response)
 }
