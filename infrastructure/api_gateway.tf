@@ -35,8 +35,9 @@ resource "aws_api_gateway_deployment" "crush_bot" {
     "aws_api_gateway_integration.lambda",
   ]
 
-  rest_api_id = "${aws_api_gateway_rest_api.crush_bot.id}"
-  stage_name  = "test"
+  rest_api_id       = "${aws_api_gateway_rest_api.crush_bot.id}"
+  stage_name        = "test"
+  stage_description = "${md5(file("api_gateway.tf"))}"
 }
 
 resource "aws_lambda_permission" "apigw" {
