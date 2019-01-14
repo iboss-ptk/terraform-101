@@ -1,12 +1,14 @@
 use std::error::Error;
 
 use lambda_runtime::{error::HandlerError, lambda, Context};
-use log::{self, error};
+use log;
 use rust_line_bot_sdk::event::{Event, Events};
 use rust_line_bot_sdk::LineBot;
 use serde_derive::{Deserialize, Serialize};
 use simple_logger;
 use std::collections::HashMap;
+use rand::thread_rng;
+use rand::seq::SliceRandom;
 
 
 #[derive(Deserialize, Debug)]
@@ -30,19 +32,26 @@ fn main() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-fn handler(e: Request, _c: Context) -> Result<ProxyResponse, HandlerError> {
+fn handler(e: Request, c: Context) -> Result<ProxyResponse, HandlerError> {
     let channel_secret_token =
         std::env::var("CHANNEL_ACCESS_TOKEN").expect("CHANNEL_ACCESS_TOKEN should be there na!");
 
     let line_bot = LineBot::new(&channel_secret_token);
 
-    let events: Events = serde_json::from_str(e.body.as_str()).unwrap();
+    let events: Events = serde_json::from_str(e.body.as_str())
+        .map_err(|e| c.new_error(e.description()))?;
 
     for event in events.events.iter() {
         match event {
-            Event::Message { reply_token, .. } =>
+            Event::Message { reply_token, .. } => {
+                let choices = ["อือ", "ค่ะ", "55", "...", "-.-"];
+                let mut rng = thread_rng();
+                let selected = choices.choose(&mut rng).unwrap();
+
                 line_bot
-                    .reply_text(reply_token.as_str(), vec!["อือ"]),
+                    .reply_text(reply_token.as_str(), vec![selected])
+                    .map_err(|e| c.new_error(e.description()))?
+            },
         };
     }
 
