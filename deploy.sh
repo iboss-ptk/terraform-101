@@ -31,7 +31,7 @@ apply_infra () {
     echo "applying infrastructure..."
     cd infrastructure
     terraform apply -auto-approve \
-      -var 'channel_access_token=yrJqaPr7RTT6c2RWtyzimvcf7WO9Kr/Hho+fXIN4oNSFdOcNCU+HGJZkJ8xUrvMTnAPOF6QKhda1nVJoTYvHwVl7sss/7PkMdqs8RRUmqjPxdichJKqAWMJe7P/0zqhxnGI2rJTqCy/2wXDyL7eGvQdB04t89/1O/w1cDnyilFU='
+      -var 'channel_access_token=qBTqoQoF8N7usYfowsfZHjUaJ6lsS2S1S3iZ23qr+b2cqm5QDltqePqBHKn0H4f36QZfubq/MQdcu2ue/yRsUJkkWueEGp2HZcjRomVg6FXUcgTTlbCSQjaXuLzSHE10Z2pco4L5AEoOxBnGxGm5qQdB04t89/1O/w1cDnyilFU='
 }
 
 
