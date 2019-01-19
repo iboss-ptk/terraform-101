@@ -61,11 +61,60 @@ revealOptions:
 ---
 
 ### Time to code!
-Let's build _"Kkaimook <3"_ bot
 
-```
-               ____________________ (reply) _____________________
-              |                                                  |
-              v                                                  |
-            Line -- (webhook) --> API Gateway -- (invoke) --> Lambda
-```
+---
+
+Let's build _a Serverless_ Line bot
+
+![](architecture.png)
+
+---
+
+### Let's dig in
+ 
+* provider
+<!-- .element: class="fragment" data-fragment-index="1"-->
+* resource
+<!-- .element: class="fragment" data-fragment-index="2"-->
+* data
+<!-- .element: class="fragment" data-fragment-index="3"-->
+---
+
+### Misc
+
+* fmt
+<!-- .element: class="fragment" data-fragment-index="1"-->
+* graph
+<!-- .element: class="fragment" data-fragment-index="2"-->
+
+---
+
+> Let's look at the graph
+
+---
+
+It might look simple but don't forget permissions!
+
+---
+
+# Demo time!
+
+---
+
+### Something else worth mentioning
+
+* variable
+<!-- .element: class="fragment" data-fragment-index="1"-->
+* locals
+<!-- .element: class="fragment" data-fragment-index="2"-->
+* output
+<!-- .element: class="fragment" data-fragment-index="3"-->
+
+---
+
+> we can create different environment using variables!
+
+---
+
+> THE END
+
